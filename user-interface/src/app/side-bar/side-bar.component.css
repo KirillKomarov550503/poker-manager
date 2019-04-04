@@ -1,5 +1,6 @@
 .content{
     background: #2F3436;
+    min-height: 100%;
     font-family: Roboto;
 }
 .content-data{
