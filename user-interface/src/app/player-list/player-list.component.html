@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="border"></div>
-      <button class="data-base-menu_button">
+      <button class="data-base-menu_button" (click)="getPlayer()">
         Импорт
       </button>
       <div class="border"></div>
@@ -22,10 +22,67 @@
   </div>
   <hr class="line">
   <div class="navigation">
-    
+    <div class="players-list" *ngFor="let player of players" [class.selected-player]="player.parametrs.selected === true">
+       <div class="d-flex player-not-change" >
+          <div class="player-info" [class.showOff]="player.parametrs.changed === true">
+                <div class="player-info-content d-flex" (click)="onSelect(player)" >
+                    <div class="player-info_name">
+                        {{player.player.name}} {{player.player.patronymic}} {{player.player.surname}}
+                    </div>
+                    <div class="player-info_age">
+                        {{player.player.age}}
+                    </div>
+                    <div class="payment_enable" *ngIf="player.player.buyInDTO.buy">
+                        <div class="player-info_payment player-info_payment-enable">
+                          Взнос
+                        </div> 
+                        <div class="player-info_data">
+                          {{player.player.buyInDTO.date}} /
+                          {{player.player.buyInDTO.endDate}}
+                        </div>
+                        
+                </div>
+                <div class="payment_enable" *ngIf="!player.player.buyInDTO.buy">
+                    <div class="player-info_payment player-info_payment-disable">
+                        Взнос
+                    </div> 
+                    <div class="player-info_data-disable">      
+                  </div>
+                </div>
+                
+                </div>
+                <div class="player-change-button" (click)="onChange(player)">                
+                </div>
+          
+        </div> 
+        <div class="player-change" [class.showOff]="player.parametrs.changed === false">
+            <div class="player-info-change-content" >  
+              <div class="player-info-change d-flex" > 
+                  <div class="player-info_name-change">
+                      <input  [(ngModel)]="player.player.name" placeholder="Имя">
+                      <input  [(ngModel)]="player.player.patronymic" placeholder="Отчество">
+                      <input  [(ngModel)]="player.player.surname" placeholder="Фамилия">
+                  </div>
+                  <div class="player-info_age-change">
+                      <input  [(ngModel)]="player.player.age" placeholder="Возраст">
+                  </div>
+                  <div class="player-info_payment-change">
+                      <input type=checkBox  [(ngModel)]="player.player.buyInDTO.buy" id="checkBox">
+                      <label for="checkBox">Взнос</label>
+                  </div>
+                  <div class="player-info_data-change">
+                      <input type="date" [(ngModel)]="player.player.buyInDTO.endDate" class="form-control" min="1000-01-01" max="3000-12-31" id="date" name="date" placeholder="Дата" required>
+                  </div>
+                  <button class="button-change" (click)="UpdateInfo(player)"></button>
+                  <button class="button-cancel" (click)="Cancel(player)" ></button>
+              </div>
+            </div>
+        </div>
+    </div>
+   <!-- 
   </div>
   <div class="scroll">
-    <div class="players-list" *ngFor="let player of players" (click)="onSelect(player)" [class.selected-player]="player.selected === true">
+  <div class="players-list" *ngFor="let player of players" (click)="onSelect(player)" [class.selected-player]="player.selected === true">
       <div class="player-info" [class.showOff]="player.changed === true"> 
         <div class="player-info_name">
           {{player.name}} {{player.midname}} {{player.surname}}
@@ -80,5 +137,5 @@
       </div>
     </div> 
   </div>
-  
-</div>
+-->  
+</div>  
