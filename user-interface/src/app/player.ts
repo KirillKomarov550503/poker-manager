@@ -1,15 +1,15 @@
-export class Player{
-    constructor(){
-        this.id = "-1";
+export class Player {
+    constructor() {
+        this.id = '-1';
         this.age = 18;
         this.buyInDTO = {
             buy: false,
-            endDate: "",
-            date: ""
+            endDate: '',
+            date: ''
         }
-        this.name = "Name";
-        this.patronymic = "Patronymic";
-        this.surname = "Surname";
+        this.name = 'Name';
+        this.patronymic = 'Patronymic';
+        this.surname = 'Surname';
     }
     id: string;
     age: number;
@@ -17,7 +17,7 @@ export class Player{
         buy: boolean;
         endDate: string;
         date: string;
-    }
+    };
     name: string;
     patronymic: string;
     surname: string;
