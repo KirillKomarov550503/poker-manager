@@ -84,11 +84,6 @@ public class TournamentServiceImpl implements TournamentService {
     Tournament tournament = optional.get();
     tournament.setTournamentName(tournamentDTO.getTournamentName());
     tournament.setDescription(tournamentDTO.getTournamentDescription());
-    tournament
-        .setRounds(tournamentDTO.getRounds()
-            .stream()
-            .map(roundConverter::convertToEntity)
-            .collect(Collectors.toSet()));
     LOG.info("Update tournament", tournament);
     return tournamentConverter.convertToDTO(tournamentRepository.save(tournament));
   }

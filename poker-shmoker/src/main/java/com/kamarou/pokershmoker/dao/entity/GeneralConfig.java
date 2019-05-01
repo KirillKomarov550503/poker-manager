@@ -29,8 +29,7 @@ public class GeneralConfig extends Game {
   }
 
 
-  public GeneralConfig(String tournamentName, String description, double buyIn,
-      Tournament tournament) {
+  public GeneralConfig(double buyIn, Tournament tournament) {
     this.buyIn = buyIn;
     this.tournament = tournament;
   }
