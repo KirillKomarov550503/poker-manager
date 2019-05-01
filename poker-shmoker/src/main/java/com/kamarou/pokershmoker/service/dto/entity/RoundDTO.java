@@ -69,13 +69,10 @@ public class RoundDTO implements Serializable {
     this.id = id;
   }
 
-  @ApiModelProperty(readOnly = true, hidden = true)
-  @JsonProperty(access = Access.READ_ONLY)
   public int getPosition() {
     return position;
   }
 
-  @JsonIgnore
   public void setPosition(int position) {
     this.position = position;
   }

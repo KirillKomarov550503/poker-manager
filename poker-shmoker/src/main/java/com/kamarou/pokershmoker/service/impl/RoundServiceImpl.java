@@ -76,6 +76,7 @@ public class RoundServiceImpl implements RoundService {
   @Transactional
   @Override
   public RoundDTO updateRound(RoundDTO roundDTO) {
+    LOG.info("Tournament ID {}, position {}", roundDTO.getTournamentID(), roundDTO.getPosition());
     Optional<Round> optionalRound = roundRepository
         .findRoundByTournamentIdAndPosition(roundDTO.getTournamentID(), roundDTO.getPosition());
     if (!optionalRound.isPresent()) {

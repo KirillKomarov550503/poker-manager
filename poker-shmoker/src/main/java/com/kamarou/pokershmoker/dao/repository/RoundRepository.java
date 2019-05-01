@@ -19,6 +19,7 @@ public interface RoundRepository extends JpaRepository<Round, String> {
   @Query(value = "select count(*) from round", nativeQuery = true)
   Integer findTotalRoundCount();
 
+  @Query(value = "select r.* from round r where r.tournament_id = ?1 and r.position = ?2", nativeQuery = true)
   Optional<Round> findRoundByTournamentIdAndPosition(String tournamentId, int position);
 
   @Modifying
