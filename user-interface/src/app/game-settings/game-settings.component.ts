@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TournamentSettingFull } from '../tournament-setting-full';
 import { TOURNAMENTSETTING } from '../mock-tournament';
-
+import { TournamentSettingsService } from './game-settings-service';
+import { TournamentNames } from './tournament-list';
 
 @Component({
   selector: 'app-game-settings',
@@ -10,14 +11,12 @@ import { TOURNAMENTSETTING } from '../mock-tournament';
 })
 export class GameSettingsComponent implements OnInit {
   tournamentInfo: TournamentSettingFull;
-  public tournamentNames: String[];
-  public selectedTournament: String;
-  public template: String;
-  constructor() {
+  public tournamentNames: TournamentNames[];
+  public selectedTournament: string;
+  public template: string;
+  constructor(private readonly tsService: TournamentSettingsService) {
     this.tournamentInfo = new TournamentSettingFull();
-    this.tournamentNames = [
-      'name', 'name2','name3', 'name4','name5', 'name6','name7', 'name8'
-    ]
+    this.tournamentNames = this.tsService.getTList();
     this.selectedTournament = 'name';
     this.template = this.selectedTournament;
   }

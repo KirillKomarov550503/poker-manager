@@ -1,10 +1,10 @@
 import { InfoPayment } from './infoPayment';
-import {Round} from './round';
+import { Round } from './round';
 
-export class TournamentSetting{
-    constructor(){
-        this.name = "";
-        this.discription ="";
+export class TournamentSetting {
+    constructor() {
+        this.name = '';
+        this.discription = '';
         this.buyIn = new InfoPayment();
         this.addOn = new InfoPayment();
         this.reBuy = new InfoPayment();
@@ -12,7 +12,7 @@ export class TournamentSetting{
     rounds: Round[];
     name: string;
     discription: string;
-    buyIn : InfoPayment;
-    reBuy : InfoPayment;
-    addOn : InfoPayment;
+    buyIn: InfoPayment;
+    reBuy: InfoPayment;
+    addOn: InfoPayment;
 }

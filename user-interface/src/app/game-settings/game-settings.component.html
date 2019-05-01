@@ -12,9 +12,8 @@
                <div class="dropDown-items">
                   <button ngbDropdownItem
                   *ngFor="let tournamentName of tournamentNames"
-                  (click)="changeTournament(tournamentName)">{{tournamentName}}</button>
-               </div>
-           
+                  (click)="changeTournament(tournamentName.tournamentName)">{{tournamentName.tournamentName}}</button>
+               </div>           
           </div>
         </div>
       </div>
@@ -43,7 +42,7 @@
             </div>
             <div class="scroll">
               <button *ngFor="let tournamentName of tournamentNames"
-                      (click)="SaveAs(tournamentName); isCollapsed = !isCollapsed;">{{tournamentName}}</button>
+                      (click)="SaveAs(tournamentName.tournamentName); isCollapsed = !isCollapsed;">{{tournamentName.tournamentName}}</button>
             </div>
           </div>
         </div>
