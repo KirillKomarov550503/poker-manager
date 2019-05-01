@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=cyrillic,cyrillic-ext');
 .content{
     width: 100%;
+    min-height: 100%;
 }
 .side-bar{
     width: 24%;

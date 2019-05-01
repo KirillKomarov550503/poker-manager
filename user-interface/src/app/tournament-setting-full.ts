@@ -1,13 +1,13 @@
 import { TournamentSetting } from './tournament-setting';
-import {Round} from './round';
+import { Round } from './round';
 
-export class TournamentSettingFull{
-    constructor(){
+export class TournamentSettingFull {
+    constructor() {
         this.tournamentSet = new TournamentSetting();
         this.AddOnBut = false;
         this.rebuyBut = false;
     }
-    tournamentSet : TournamentSetting;
+    tournamentSet: TournamentSetting;
     rebuyBut: boolean;
-    AddOnBut : boolean;
+    AddOnBut: boolean;
 }

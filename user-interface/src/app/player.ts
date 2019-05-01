@@ -1,22 +1,24 @@
-export class Player{
-    constructor(){
-        this.name= "";
-        this.surname= "";
-        this.midname= "";
-        this. age= 0;
-        this.payment = false;
-        this.paymentData="";
-        this.paymentOffData= "";
-        this.selected= false;
-        this.changed=true; 
+export class Player {
+    constructor() {
+        this.id = '-1';
+        this.age = 18;
+        this.buyInDTO = {
+            buy: false,
+            endDate: '',
+            date: ''
+        }
+        this.name = 'Name';
+        this.patronymic = 'Patronymic';
+        this.surname = 'Surname';
     }
-    name: string;
-    surname: string;
-    midname: string;
+    id: string;
     age: number;
-    payment : boolean;
-    paymentData: string;
-    paymentOffData: string;
-    selected: boolean;
-    changed: boolean;
+    buyInDTO: {
+        buy: boolean;
+        endDate: string;
+        date: string;
+    };
+    name: string;
+    patronymic: string;
+    surname: string;
 }
