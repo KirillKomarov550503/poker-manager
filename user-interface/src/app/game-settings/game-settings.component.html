@@ -2,18 +2,25 @@
   <div class="game-component_button d-flex">
     <div class="d-flex position-relative">
       <div class="d-flex ">
-        <div ngbDropdown
-             class="d-flex dropDown">
-          <button class="btn btn-outline-primary pre-import"
-                  id="dropdownBasic1"
-                  ngbDropdownToggle>Импорт</button>
-          <div ngbDropdownMenu
-               aria-labelledby="dropdownBasic1">
-               <div class="dropDown-items">
-                  <button ngbDropdownItem
-                  *ngFor="let tournamentName of tournamentNames"
-                  (click)="changeTournament(tournamentName.tournamentName)">{{tournamentName.tournamentName}}</button>
-               </div>           
+        <div class="d-flex position-relative">
+          <button type="button"
+                  class="btn btn-outline-primary pre-import"
+                  (click)="isCollapsed1 = !isCollapsed1"
+                  [attr.aria-expanded]="!isCollapsed1"
+                  aria-controls="collapseExample1">
+            Импорт
+          </button>
+          <div id="collapseExample1"
+               [ngbCollapse]="!isCollapsed1"
+               class="position-absolute collapsed-menu">
+            <div class="card">
+              <div class="card-body my-settings">
+                <div class="scroll">
+                  <button *ngFor="let tournamentName of tournamentNames"
+                          (click)="changeTournament(tournamentName.id); changeSet(tournamentName.id); isCollapsed1 = !isCollapsed1;">{{tournamentName.tournamentName}}</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -51,7 +58,7 @@
     <div class="border"></div>
     <button class="btn btn-start">Начать игру</button>
   </div>
-  <h1>{{selectedTournament}}</h1>
+  <h1>{{tournamentInfo.tournamentSet.tournamentName}}</h1>
   <h2>
     Общее
   </h2>
@@ -62,7 +69,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Название</span>
           </div>
-          <textarea [(ngModel)]="tournamentInfo.tournamentSet.name"
+          <textarea [(ngModel)]="tournamentInfo.tournamentSet.tournamentName"
                     class="form-control row-3"
                     aria-label="With textarea"
                     placeholder="Название турнира"></textarea>
@@ -71,18 +78,18 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Описание</span>
           </div>
-          <textarea [(ngModel)]="tournamentInfo.tournamentSet.discription"
+          <textarea [(ngModel)]="tournamentInfo.tournamentSet.tournamentDescription"
                     class="form-control"
                     aria-label="With textarea"
                     placeholder="Описание"></textarea>
         </div>
       </div>
-      <div class="buy-in-settings ">
+      <!--<div class="buy-in-settings ">
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">Старт</span>
           </div>
-          <textarea [(ngModel)]="tournamentInfo.tournamentSet.buyIn.stack"
+          <textarea [(ngModel)]="tournamentInfo.Info.chipsAmount"
                     class="form-control"
                     aria-label="With textarea"></textarea>
         </div>
@@ -90,7 +97,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Коммисия</span>
           </div>
-          <textarea [(ngModel)]="tournamentInfo.tournamentSet.buyIn.rake"
+          <textarea [(ngModel)]="tournamentInfo.Info.commission"
                     class="form-control"
                     aria-label="With textarea"></textarea>
         </div>
@@ -167,5 +174,5 @@
                   aria-label="With textarea"></textarea>
       </div>
     </div>
-  </div>
+  </div>-->
 </div>

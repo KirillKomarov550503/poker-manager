@@ -23,13 +23,15 @@
   <hr class="line">
   <div class="navigation">
     <div class="paginator">
-      <div class="counts">
-        <span>{{playerCount.count}}</span>
-      </div>
-      <div class="paginator-button">
-        <button (click)="prev()">prev</button>
-        <span>{{playerPagStart}} - </span><span>{{playerPagEnd}}</span>
-        <button (click)="next()">next</button>
+      <div class="paginator-button d-flex justify-content-between">
+        <div>
+            <span class="count">Все ({{playerCount.count}})</span>
+          </div>
+        <div>
+          <span>{{playerPagStart}} - </span><span>{{playerPagEnd}}</span>
+          <button class="button-prev" (click)="prev()"></button>          
+          <button class="button-next" (click)="next()"></button>
+        </div>
       </div>
     </div>
     <div class="players-list" *ngFor="let player of players" [class.selected-player]="player.parametrs.selected === true">

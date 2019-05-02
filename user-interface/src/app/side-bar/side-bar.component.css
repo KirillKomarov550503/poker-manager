@@ -2,6 +2,7 @@
     background: #2F3436;
     min-height: 100%;
     font-family: Roboto;
+    padding-left: 20px;
 }
 .content-data{
     width: 93%;    
@@ -66,4 +67,27 @@ a{
 }
 a:hover{
     color: #FFFFFF;
+}
+.translation-title{
+    margin-top: 10px;
+    color: #5C6469;
+    padding-top: 27px;
+}
+.content-data{
+    padding-left: 20px;
+    padding-bottom: 40px;
+}
+.translation-video{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.btn-translation{
+    width: 190px;
+    color:#FFFFFF;
+    height: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
 }

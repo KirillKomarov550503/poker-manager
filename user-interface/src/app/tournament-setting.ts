@@ -1,18 +1,11 @@
 import { InfoPayment } from './infoPayment';
-import { Round } from './round';
 
 export class TournamentSetting {
     constructor() {
-        this.name = '';
-        this.discription = '';
-        this.buyIn = new InfoPayment();
-        this.addOn = new InfoPayment();
-        this.reBuy = new InfoPayment();
+        this.tournamentName = '';
+        this.tournamentDescription = '';
     }
-    rounds: Round[];
-    name: string;
-    discription: string;
-    buyIn: InfoPayment;
-    reBuy: InfoPayment;
-    addOn: InfoPayment;
+    tournamentName: string;
+    tournamentDescription: string;
+    id: string;
 }

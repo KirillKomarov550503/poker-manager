@@ -258,3 +258,33 @@
 .player-info-content {
     height: 42px;
 }
+
+.button-next,.button-prev{
+    background: #FFFFFF;
+    border: none;
+}
+.button-prev::before{
+    content: url(prev.svg);
+}
+.button-prev{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.button-next::before{
+content: url(next.svg);
+}
+.button-next{
+    margin-right: 40px;
+}
+.paginator-button{
+    text-align: right;
+    height: 53px;
+    padding-top: 15px;
+    border-top: 1px solid #DADCDD;
+    border-bottom: 1px solid #DADCDD;
+    padding-bottom: 15px;
+}
+
+.count{
+    margin-left: 20px;
+}
