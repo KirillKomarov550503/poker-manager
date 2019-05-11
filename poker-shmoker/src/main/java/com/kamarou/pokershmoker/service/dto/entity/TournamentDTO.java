@@ -13,14 +13,20 @@ public class TournamentDTO implements Serializable {
   private String id;
   private String tournamentName;
   private String tournamentDescription;
+  private GeneralConfigDTO generalConfigDTO;
+  private OtherConfigDTO otherConfigDTO;
 
   public TournamentDTO() {
   }
 
-  public TournamentDTO(String id, String tournamentName, String tournamentDescription) {
+  public TournamentDTO(String id, String tournamentName, String tournamentDescription,
+      GeneralConfigDTO generalConfigDTO,
+      OtherConfigDTO otherConfigDTO) {
     this.id = id;
     this.tournamentName = tournamentName;
     this.tournamentDescription = tournamentDescription;
+    this.generalConfigDTO = generalConfigDTO;
+    this.otherConfigDTO = otherConfigDTO;
   }
 
   @ApiModelProperty(readOnly = true, hidden = true)
@@ -50,6 +56,24 @@ public class TournamentDTO implements Serializable {
     this.tournamentDescription = tournamentDescription;
   }
 
+
+  public GeneralConfigDTO getGeneralConfigDTO() {
+    return generalConfigDTO;
+  }
+
+  public void setGeneralConfigDTO(
+      GeneralConfigDTO generalConfigDTO) {
+    this.generalConfigDTO = generalConfigDTO;
+  }
+
+  public OtherConfigDTO getOtherConfigDTO() {
+    return otherConfigDTO;
+  }
+
+  public void setOtherConfigDTO(OtherConfigDTO otherConfigDTO) {
+    this.otherConfigDTO = otherConfigDTO;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -60,12 +84,14 @@ public class TournamentDTO implements Serializable {
     }
     TournamentDTO that = (TournamentDTO) o;
     return Objects.equals(tournamentName, that.tournamentName) &&
-        Objects.equals(tournamentDescription, that.tournamentDescription);
+        Objects.equals(tournamentDescription, that.tournamentDescription) &&
+        Objects.equals(generalConfigDTO, that.generalConfigDTO) &&
+        Objects.equals(otherConfigDTO, that.otherConfigDTO);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tournamentName, tournamentDescription);
+    return Objects.hash(tournamentName, tournamentDescription, generalConfigDTO, otherConfigDTO);
   }
 
   @Override
@@ -74,6 +100,8 @@ public class TournamentDTO implements Serializable {
         "id='" + id + '\'' +
         ", tournamentName='" + tournamentName + '\'' +
         ", tournamentDescription='" + tournamentDescription + '\'' +
+        ", generalConfigDTO=" + generalConfigDTO +
+        ", otherConfigDTO=" + otherConfigDTO +
         '}';
   }
 }
